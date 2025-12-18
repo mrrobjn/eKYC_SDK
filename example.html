@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eKYC SDK Embedding Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .container {
+      border: 2px solid #007bff;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>eKYC SDK Embedding Example</h1>
+  
+  <h2>Method 1: Using a specific container</h2>
+  <div id="my-sdk"></div>
+  
+  <h2>Method 2: Let SDK create its own container</h2>
+  <div id="sdk-container-2"></div>
+  
+  <link rel="stylesheet" href="./dist/ekyc-sdk.css">
+  <script src="./dist/ekyc-sdk.iife.js"></script>
+  <script>
+    // Wait for SDK to load
+    if (window.eKYCSDK) {
+      // Initialize SDK with a specific container
+      window.eKYCSDK.init({
+        apiKey: 'your-api-key-here',
+        container: '#my-sdk'
+      });
+      
+      // Or initialize without container (SDK will create one)
+      // window.eKYCSDK.init({
+      //   apiKey: 'your-api-key-here'
+      // });
+    } else {
+      console.error('eKYC SDK not loaded');
+    }
+  </script>
+</body>
+</html>
+
